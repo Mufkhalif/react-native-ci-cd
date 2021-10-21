@@ -20,11 +20,13 @@ workflows:
         # build Android
         cd android
         ./gradlew assembleDebug
-      - |
-        # build iOS
-        cd ios
-        pod install
-        xcodebuild build -workspace "$XCODE_WORKSPACE.xcworkspace" -scheme "$XCODE_SCHEME" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
     artifacts:
       - android/app/build/outputs/**/**/*.apk
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+    publishing:
+      # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
+      email:
+        recipients:
+          - mufkalif18@gmail.com
+        notify:
+          success: true # To not receive a notification when a build succeeds
+          failure: false # To not receive a notification when a build fails
