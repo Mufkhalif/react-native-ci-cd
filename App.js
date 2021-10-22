@@ -60,7 +60,9 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">Selamat datang mufkhalif</Section>
+          <Section title="Step One">
+            Selamat datang mufkhalif edit hari jumat
+          </Section>
           <LearnMoreLinks />
         </View>
       </ScrollView>
